@@ -1,0 +1,438 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "ABLEYM HUB", HidePremium = false, SaveConfig = true, IntroText = "ABLEYM HUB"})
+
+local Tab = Window:MakeTab({
+	Name = "Auto Farm",
+	Icon = "rbxassetid://7495464623",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Auto Farm [TOOLS]"
+})
+
+Tab:AddDropdown({
+    Name = "Choose Item",
+    Default = "1",
+    Options = {"Weight", "Pushups", "Situps", "Handstands"},
+    Callback = function(v)
+        selectedTool = v
+    end
+})
+
+Tab:AddToggle({
+    Name = "Auto Farm",
+    Default = false,
+    Callback = function(v)
+        getgenv().autoFarm = v
+        while true do
+            if not  getgenv().autoFarm then return end
+        if selectedTool == "Weight" or
+        selectedTool == "Pushups" or
+        selectedTool == "Situps" or
+        selectedTool == "Handstands" then
+            local args = {
+                [1] = "rep"
+            }
+            game:GetService("Players").LocalPlayer.muscleEvent:FireServer(unpack(args))
+        wait(0.3)
+    end
+    end
+end
+})
+
+local Section = Tab:AddSection({
+	Name = "Auto Farm [MACHINES]"
+})
+
+local selectedMachine
+Tab:AddDropdown({
+    Name = "Choose Machine",
+    Default = "1",
+    Options = {"Bench Press", "Pullups", "Squat Rack", "Deadlift", "Boulder Throw"},
+    Callback = function(v)
+        selectedMachine = v
+    end
+})
+
+local selectedMachineLocation
+Tab:AddDropdown({
+    Name = "Choose Machine Location",
+    Default = "1",
+    Options = {"Spawn", "Beach", "Frost Gym", "Mythical Gym", "Eternal Gym", "Legends Gym"},
+    Callback = function(v)
+        selectedMachineLocation = v
+    end
+})
+
+Tab:AddToggle({
+    Name = "Auto Farm",
+    Default = false,
+    Callback = function(v)
+        getgenv().autoFarm = v
+        while true do
+            if not  getgenv().autoFarm then return end
+            if selectedMachine == "Bench Press" and selectedMachineLocation == "Spawn" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-193.448639, 3.67689228, 286.716614)
+            end
+            if selectedMachine == "Bench Press" and selectedMachineLocation == "Beach" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(192.52243, 3.67689133, -330.209106)
+            end
+            if selectedMachine == "Bench Press" and selectedMachineLocation == "Frost Gym" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2623.21021, 3.67689157, -174.649857)
+                local selectedMachine = "Bench Press" == "Frost Press"
+            end
+            if selectedMachine == "Bench Press" and selectedMachineLocation == "Mythical Gym" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2369.99243, 39.5785675, 1228.28259)
+                local selectedMachine = "Bench Press" == "Mythical Press"
+            end
+            if selectedMachine == "Bench Press" and selectedMachineLocation == "Eternal Gym" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-7172.33447, 45.7568169, -1107.09558)
+                local selectedMachine = "Bench Press" == "Eternal Press"
+            end
+            if selectedMachine == "Bench Press" and selectedMachineLocation == "Legends Gym" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4100.19971, 1020.82947, -3801.42603)
+                local selectedMachine = "Bench Press" == "Legends Press"
+            end
+            if selectedMachine == "Pullups" and selectedMachineLocation == "Spawn" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-186.290375, 3.6768918, 120.979874)
+            end
+            if selectedMachine == "Pullups" and selectedMachineLocation == "Beach" then
+                OrionLib:MakeNotification({
+                    Name = "ALERT",
+                    Content = "There is not Pullup machine at the beach!",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
+            end
+            if selectedMachine == "Pullups" and selectedMachineLocation == "Frost Gym" then
+                OrionLib:MakeNotification({
+                    Name = "ALERT",
+                    Content = "There is not Pullup machine at the Frost Gym!",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
+            end
+            if selectedMachine == "Pullups" and selectedMachineLocation == "Eternal Gym" then
+                OrionLib:MakeNotification({
+                    Name = "ALERT",
+                    Content = "There is not Pullup machine at the Eternal Gym!",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
+            end
+            if selectedMachine == "Pullups" and selectedMachineLocation == "Mythical Gym" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2260.59937, 3.67681885, 854.470764)
+                local selectedMachine = "Pullups" == "Mythical Pullup"
+            end
+            if selectedMachine == "Pullups" and selectedMachineLocation == "Legends Gym" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4304.11963, 987.829773, -4115.30273)
+                local selectedMachine = "Pullups" == "Legends Pullup"
+            end
+            if selectedMachine == "Squat Rack" and selectedMachineLocation == "Spawn" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-241.8685, 3.67689133, 122.439835)
+            end
+            if selectedMachine == "Squat Rack" and selectedMachineLocation == "Beach" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-185.998215, 3.67689133, -364.72052)
+            end
+            if selectedMachine == "Squat Rack" and selectedMachineLocation == "Frost Gym" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2630.23535, 3.67689228, -617.7547)
+                local selectedMachine = "Squat Rack" == "Frost Squat"
+            end
+            if selectedMachine == "Squat Rack" and selectedMachineLocation == "Mythical Gym" then
+                OrionLib:MakeNotification({
+                    Name = "ALERT",
+                    Content = "There is not Squat Rack machine at the Mythical Gym!",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
+            end
+            if selectedMachine == "Squat Rack" and selectedMachineLocation == "Eternal Gym" then
+                OrionLib:MakeNotification({
+                    Name = "ALERT",
+                    Content = "There is not Squat Rack machine at the Eternal Gym!",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
+            end
+            if selectedMachine == "Squat Rack" and selectedMachineLocation == "Legends Gym" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4434.26221, 987.829834, -4056.23633)
+                local selectedMachine = "Squat Rack" == "Legends Squat"
+            end
+            if selectedMachine == "Deadlift" and selectedMachineLocation == "Spawn" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(182.939972, 3.67689157, 84.2942505)
+            end
+            if selectedMachine == "Deadlift" and selectedMachineLocation == "Beach" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-86.7915955, 3.67689276, -490.688049)
+            end
+            if selectedMachine == "Deadlift" and selectedMachineLocation == "Frost Gym" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2912.91772, 3.67689109, -200.072296)
+                local selectedMachine = "Deadlift" == "Frost Lift"
+            end
+            if selectedMachine == "Deadlift" and selectedMachineLocation == "Mythical Gym" then
+                OrionLib:MakeNotification({
+                    Name = "ALERT",
+                    Content = "There is not Deadlift machine at the Mythical Gym!",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
+            end
+            if selectedMachine == "Deadlift" and selectedMachineLocation == "Eternal Gym" then
+                OrionLib:MakeNotification({
+                    Name = "ALERT",
+                    Content = "There is not Deadlift machine at the Eternal Gym!",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
+            end
+            if selectedMachine == "Deadlift" and selectedMachineLocation == "Legends Gym" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4535.05811, 987.829895, -4001.55347)
+                local selectedMachine = "Deadlift" == "Legends Lift"
+            end
+            if selectedMachine == "Boulder Throw" and selectedMachineLocation == "Spawn" then
+                OrionLib:MakeNotification({
+                    Name = "ALERT",
+                    Content = "There is not Boulder Throw machine at the spawn!",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
+            end
+            if selectedMachine == "Boulder Throw" and selectedMachineLocation == "Beach" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-94.9012604, 3.67689133, -307.413086)
+            end
+            if selectedMachine == "Boulder Throw" and selectedMachineLocation == "Frost Gym" then
+                OrionLib:MakeNotification({
+                    Name = "ALERT",
+                    Content = "There is not Boulder Throw machine at the Frost Gym!",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
+            end
+            if selectedMachine == "Boulder Throw" and selectedMachineLocation == "Mythical Gym" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2494.75537, 3.67689252, 1251.53455)
+                local selectedMachine = "Squat Rack" == "Mythical Throw"
+            end
+            if selectedMachine == "Boulder Throw" and selectedMachineLocation == "Eternal Gym" then
+                OrionLib:MakeNotification({
+                    Name = "ALERT",
+                    Content = "There is not Boulder Throw machine at the Eternal Gym!",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
+            end
+            if selectedMachine == "Boulder Throw" and selectedMachineLocation == "Legends Gym" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4258.5542, 987.829712, -3631.66211)
+                local selectedMachine = "Squat Rack" == "Legends Throw"
+            end
+                local args = {
+                    [1] = "rep",
+                    [2] = workspace.machinesFolder:FindFirstChild(selectedMachine).interactSeat
+                }
+                game:GetService("Players").LocalPlayer.muscleEvent:FireServer(unpack(args))
+        wait(0.3)
+    end
+end
+})
+
+local Section = Tab:AddSection({
+	Name = "Other"
+})
+
+Tab:AddToggle({
+    Name = "Auto Rebirth",
+    Default = false,
+    Callback = function(v)
+        getgenv().autoRebirth = v
+        while true do 
+            if not getgenv().autoRebirth then return end
+        local args = {
+            [1] = "rebirthRequest"
+        }
+        game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer(unpack(args))
+        wwait(10)
+        end
+    end
+})
+
+local Tab = Window:MakeTab({
+	Name = "Local Player",
+	Icon = "rbxassetid://7549504320",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Local Player"
+})
+
+Tab:AddSlider({
+	Name = "WalkSpeed",
+	Min = 16,
+	Max = 200,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "MP/h",
+	Callback = function(v)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+	end   
+})
+
+Tab:AddSlider({
+	Name = "JumpPower",
+	Min = 50,
+	Max = 200,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Feet",
+	Callback = function(v)
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+	end   
+})
+
+local Section = Tab:AddSection({
+	Name = "Stats"
+})
+
+local selectedStrength
+Tab:AddTextbox({
+    Name = "Strength",
+    Default = "Numbers Only",
+    TextDisappear = false,
+    Callback = function(v)
+        selectedStrength = v
+    end
+})
+
+local selectedRebirths
+Tab:AddTextbox({
+    Name = "Rebirths",
+    Default = "Numbers Only",
+    TextDisappear = false,
+    Callback = function(v)
+        selectedRebirths = v
+    end
+})
+
+local selectedKills
+Tab:AddTextbox({
+    Name = "Kills",
+    Default = "Numbers Only",
+    TextDisappear = false,
+    Callback = function(v)
+        selectedKills = v
+    end
+})
+
+local selectedBrawls
+Tab:AddTextbox({
+    Name = "Brawls",
+    Default = "Numbers Only",
+    TextDisappear = false,
+    Callback = function(v)
+        selectedBrawls = v
+    end
+})
+
+Tab:AddButton({
+    Name = "Confirm",
+    Default = false,
+    Callback = function(v)
+        game:GetService("Players").flerci42.leaderstats.Strength.Value = selectedStrength
+        game:GetService("Players").flerci42.leaderstats.Rebirths.Value = selectedRebirths
+        game:GetService("Players").flerci42.leaderstats.Kills.Value = selectedKills
+        game:GetService("Players").flerci42.leaderstats.Brawls.Value = selectedBrawls
+    end
+})
+
+local Tab = Window:MakeTab({
+	Name = "Teleports",
+	Icon = "rbxassetid://7549514426",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Gyms"
+})
+
+local selectedGym
+Tab:AddDropdown({
+    Name = "Choose Gym",
+    Default = "1",
+    Options = {"Beach", "Frost Gym", "Mythical Gym", "Eternal Gym", "Legends Gym", "Muscle King"},
+    Callback = function(v)
+        selectedGym = v
+    end
+})
+
+Tab:AddButton({
+    Name = "Teleport",
+    Default = false,
+    Callback = function(v)
+        if selectedGym == "Beach" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(3.90393853, 3.67689133, -368.555298)
+        end
+        if selectedGym == "Frost Gym" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2588.98706, 3.62689185, -407.025208)
+        end
+        if selectedGym == "Mythical Gym" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2226.30859, 3.62689161, 1073.52307)
+        end
+        if selectedGym == "Eternal Gym" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-6735.47119, 3.62689114, -1285.62024)
+        end
+        if selectedGym == "Legends Gym" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4630.44434, 987.829895, -3896.14648)
+        end
+        if selectedGym == "Muscle King" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-8584.51367, 13.5269194, -5679.39795)
+        end
+    end
+})
+
+local Section = Tab:AddSection({
+	Name = "Safe Spots"
+})
+
+local selectedGym
+Tab:AddDropdown({
+    Name = "Choose Safe Spot Location",
+    Default = "1",
+    Options = {"Tiny Island", "Spin Wheel"},
+    Callback = function(v)
+        selectedGym = v
+    end
+})
+
+Tab:AddButton({
+    Name = "Teleport",
+    Default = false,
+    Callback = function(v)
+        if selectedGym == "Tiny Island" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-37.2061043, 3.83023095, 1879.30176)
+        end
+        if selectedGym == "Spin Wheel" then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2604.21094, -2.31000328, 5740.63574)
+        end
+    end
+})
+
+local Tab = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://7510992915",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Comming Soon..."
+})
+
+OrionLib:MakeNotification({
+	Name = "ABEYM HUB LAODED!",
+	Content = "Abeym Hub Has Loaded Successfully! Have Fun!",
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
+
+OrionLib:Init()
